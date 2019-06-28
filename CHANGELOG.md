@@ -313,6 +313,14 @@ module.exports = ({ config, mode }) => {
 
 1.[storybook](https://storybook.js.org/docs/guides/guide-vue/)
 
-## （二）项目 changelog
+## （二）项目 CHANGELOG
+
+### v-1.0.0(2019/06/28)
+
+#### 新增 feature
+
+-[项目搭建] 项目构建
+
+-[新增 changeTime.vue 私有组件] 增加 demo
 
 ---
