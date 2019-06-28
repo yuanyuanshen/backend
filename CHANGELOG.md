@@ -1,8 +1,8 @@
 ## （一）私有组件库搭建
 
----
-
 > 汇总既有项目中的通用组件
+
+[项目地址](https://github.com/yuanyuanshen/backend)
 
 ### 为什么搭建私有组件库
 
@@ -25,9 +25,16 @@ npm init
 
 #### 2.Storybook for Vue
 
-参考文档[Storybook for Vue](https://storybook.js.org/docs/basics/introduction/)
+##### 学习内容
 
-可以选择自动搭建 storybook 项目也可以使用手动搭建
+- Babel
+  ES2016+ Support
+  babelrc support
+- Webpack
+  CSS Support
+  Image and Static File Support
+  JSON Loader
+- NPM Modules
 
 ##### 自动搭建
 
@@ -313,6 +320,8 @@ module.exports = ({ config, mode }) => {
 
 1.[storybook](https://storybook.js.org/docs/guides/guide-vue/)
 
+---
+
 ## （二）项目 CHANGELOG
 
 ### v-1.0.0(2019/06/28)
@@ -322,5 +331,3 @@ module.exports = ({ config, mode }) => {
 -[项目搭建] 项目构建
 
 -[新增 changeTime.vue 私有组件] 增加 demo
-
----
