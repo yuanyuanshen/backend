@@ -318,7 +318,9 @@ module.exports = ({ config, mode }) => {
 
 ### 参考
 
-1.[storybook](https://storybook.js.org/docs/guides/guide-vue/)
+1. [storybook](https://storybook.js.org/docs/guides/guide-vue/)
+2. [storybook 配置之基本配置和 webpack 配置](https://www.cnblogs.com/mrzhu/p/10238832.html)
+3. [vue界面测试框架storybook](https://blog.csdn.net/win7583362/article/details/79238060)
 
 ---
 
