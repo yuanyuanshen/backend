@@ -1,11 +1,13 @@
 <template>
   <div id="show-single-chart"
+       :style="style"
        ref="myEchart">
   </div>
 </template>
 <script>
 
 import echarts from 'echarts'
+import Util from './lib/utils'
 
 const fakeResponse2 = {
   "requestId": "bjeew6c04iukcvgfmu9vpk587we50k9s",
@@ -20,118 +22,191 @@ const fakeResponse2 = {
 };
 
 export default {
+  props: {
+    // 数值系列的颜色列表
+    color: {
+      type: Array,
+      default () {
+        return ['#66CC00', '#FF9966'];
+      }
+    },
+    // 系列图例名称
+    seriesName: {
+      type: Array,
+      default () {
+        return ['内存使用率'];
+      }
+    },
+    // 系列标题名称
+    titleText: {
+      type: String,
+      default: ''
+    },
+    // 系列副标题名称
+    titleSubText: {
+      type: String,
+      default: ''
+    },
+    // 系列提示框单位
+    unit: {
+      type: String,
+      default: '%'
+    },
+    // 纵坐标名称
+    yAxisName: {
+      type: String,
+      default: ''
+    },
+    // 图标宽度
+    width: {
+      type: String,
+      default: '40%'
+    },
+    // 图标高度
+    height: {
+      type: String,
+      default: '300px'
+    }
+  },
+
   data () {
     return {
       useDate: fakeResponse2.result
     }
   },
+
   computed: {
+    // 图标样式
+    style () {
+      return `width:${this.width};height:${this.height}`
+    },
+    // 计算横坐标
     keys () {
       this.useDate.metricDatas[0].data.forEach(element => {
-        element.timestamp = this.formatDate(element.timestamp)
+        element.timestamp = Util.formatDate(element.timestamp)
       });
-      console.log(this.useDate.metricDatas[0].data.map(r => r.timestamp))
       return this.useDate.metricDatas[0].data.map(r => r.timestamp)
+    },
+    // 计算系列数据
+    values () {
+      const array = [];
+      this.seriesName.forEach((series, index) => {
+        array.push({
+          data: this.useDate.metricDatas[0].data.map(r => r.value),
+          type: 'line',
+          name: series,
+        })
+      })
+      return array;
     }
   },
+
   mounted () {
-    this.initChart()
-    this.useDate.metricDatas[0].data.forEach(element => {
-      element.timestamp = this.formatDate(element.timestamp)
-    });
-    console.log(this.useDate.metricDatas[0].data)
+    console.log(fakeResponse2)
+    this.renderChart()
   },
-  props: {
-    color: {
-      type: Array,
-      default () {
-        return ['#F39702', '#51D2B7'];
-      }
-    },
-  },
+
   methods: {
-    initChart () {
+    renderChart () {
       this.chart = echarts.init(this.$refs.myEchart);
       // 把配置和数据放这里
-      this.chart.setOption({
+      const cfg = {
+        title: {
+          text: this.titleText,
+          subtext: this.titleSubText
+        },
         tooltip: {
           trigger: 'axis'
         },
         legend: {
-          data: ['邮件营销', '联盟广告']
+          data: this.seriesName,
+          bottom: 0,
+          selectedMode: false,
         },
+        // 内边距
+        grid: {
+          // 有副标题&纵坐标名称y轴下移
+          top: (this.titleSubText && this.yAxisName) ? '28%' : '20%',
+          left: '4%',
+          right: '8%',
+          bottom: '12%',
+          containLabel: true
+        },
+        // 工具栏
         toolbox: {
           show: true,
           feature: {
             mark: { show: true },
-            dataView: { show: true, readOnly: false },
-            magicType: { show: true, type: ['line', 'bar', 'stack', 'tiled'] },
+            magicType: { show: true, type: ['line', 'bar'] },
             restore: { show: true },
             saveAsImage: { show: true }
           }
         },
-        calculable: true,
+        // 提示框
+        tooltip: {
+          show: true,
+          trigger: 'axis',
+          // 系列提示框显示格式
+          formatter: (paramsArr) => {
+            let cont = `${paramsArr[0].name}<br/>`;
+            cont += paramsArr.map(
+              params => `${params.marker}${params.seriesName}: ${params.value}${this.unit}`
+            ).join('<br/>');
+            return cont;
+          },
+        },
+        // 横坐标配置
         xAxis: [
           {
             type: 'category',
-            axisLine: { onZero: false },
+            axisLine: {
+              onZero: false,
+            },
             boundaryGap: false,
+            // 横坐标Label 显示
+            axisLabel: {
+              show: true,
+              formatter: (str) => {
+                return str.replace(/^\d{4}-(\d{2}-\d{2}) (\d{2}:\d{2}:\d{2})$/g, '$1' + '\n' + '$2')
+              },
+              interval: 12,
+              showMaxLabel: true
+            },
             data: this.keys
           }
         ],
-        yAxis: [
-          {
-            type: 'value'
-          }
-        ],
-        color: this.color,
-        series: [
-          {
-            name: '邮件营销',
-            type: 'line',
-            stack: '总量',
-            data: [120, 132, 101, 134, 90, 230, 210]
+        // 纵坐标配置
+        yAxis: [{
+          name: this.yAxisName,
+          type: 'value',
+          // 控制是否显示纵坐标
+          axisLine: {
+            show: false
           },
-          {
-            name: '联盟广告',
-            type: 'line',
-            stack: '总量',
-            data: [220, 182, 191, 234, 290, 330, 310]
-          }
-        ]
-      })
-    },
-    formatDate (nTimestamp) {
-      /**
-       * 前置补充0
-       * @param {Number} num 数值
-       * @param {Number} fill 最终长度
-       * @return {String} fill为2时 1 => 01
-       */
-      const preZeroFill = (num, fill = 2) => {
-        // 当前数字位数
-        const nLen = ('' + num).length
-        // 缺少的位数的长度
-        const sPreLen = fill > nLen ? fill - nLen : 0
-        return Array(sPreLen).fill(0).join('') + num
+          // 设置y轴分割线
+          splitLine: {
+            show: true,
+            lineStyle: {
+              type: 'dashed'
+            }
+          },
+          // 做坐标分割指定最小最大值
+          min: 0,
+          max: 2
+        }],
+        // 设置系列颜色
+        color: this.color,
+        series: this.values
       }
-      const date = new Date(nTimestamp)
-      const sYear = date.getFullYear()
-      const sMonth = preZeroFill(date.getMonth() + 1)
-      const sDay = preZeroFill(date.getDate())
-      const sHour = preZeroFill(date.getHours())
-      const sMunite = preZeroFill(date.getMinutes())
-      const sSecond = preZeroFill(date.getSeconds())
-      return `${sYear}-${sMonth}-${sDay} ${sHour}:${sMunite}:${sSecond}`
+
+      this.chart.setOption(cfg)
     }
   }
 }
 </script>
 <style lang="scss" scoped>
 #show-single-chart {
-  width: 50%;
-  height: 300px;
-  border: 1px solid red;
+  border: 1px solid #d9e1e9;
 }
 </style>
 
