@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import { storiesOf } from '@storybook/vue'
 import singleLineChart from './line-chart'
-import Util from './lib/utils'
-import { fakeResponse2, fakeResponse1 } from './line-chart.fakedata.js'
+import Util from '../lib/utils'
+import { fakeResponse2, fakeResponse1 } from './line-chart.fakedata'
 
 storiesOf('监控图表(折线图)', module)
   .add('单数据折线图', () => ({

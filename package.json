@@ -31,6 +31,7 @@
     "dependencies": {
         "echarts": "^4.2.1",
         "element-ui": "^2.10.0",
+        "storybook-addon-vue-info": "^1.2.1",
         "vue": "^2.6.10"
     }
 }
