@@ -41,6 +41,7 @@ storiesOf('监控图表(折线图)', module)
   <single-line-chart 
     :seriesName="seriesName"
     :seriesData="seriesData"
+    :dataZoom="true"
     v-if="showGraph"
     :unit="unit" />
   </div>`,

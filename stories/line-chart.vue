@@ -60,6 +60,10 @@ export default {
       default () {
         return [];
       }
+    },
+    dataZoom: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -107,13 +111,18 @@ export default {
           bottom: 0,
           selectedMode: false,
         },
+        dataZoom: {
+          show: this.dataZoom,
+          strart: 0,
+          bottom: '10%'
+        },
         // 内边距
         grid: {
           // 有副标题&纵坐标名称y轴下移
           top: (this.titleSubText || this.yAxisName) ? '28%' : '14%',
           left: '4%',
           right: '8%',
-          bottom: '12%',
+          bottom: this.dataZoom ? '20%' : '12%',
           containLabel: true
         },
         // 工具栏
