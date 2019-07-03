@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import singleLineChart from './line-chart'
 import Util from '../lib/utils'
 import { fakeResponse2, fakeResponse1 } from './line-chart.fakedata'
+import readme from './readme.md'
 
 storiesOf('监控图表(折线图)', module)
   .add(
@@ -45,7 +46,9 @@ storiesOf('监控图表(折线图)', module)
       }
     }),
     {
-      info: true
+      info: {
+        header: true
+      }
     }
   )
   .add(
@@ -81,7 +84,7 @@ storiesOf('监控图表(折线图)', module)
     }),
     {
       info: {
-        header: true
+        summary: readme
       }
     }
   )

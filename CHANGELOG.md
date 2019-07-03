@@ -99,6 +99,46 @@ storiesOf('elButton', module)
 npm run storybook
 ```
 
+6. 添加 storybook 的 info 配置信息
+
+```bash
+npm install --save-dev storybook-addon-vue-info @storybook/addon-storysource
+```
+
+在.storybook 目录下新增文件 addons.js
+
+```js
+import 'storybook-addon-vue-info/lib/register'
+import '@storybook/addon-storysource/register'
+```
+
+在 webpack.config.js 下新增处理 loader
+
+```js
+config.module.rules.push({
+  test: /\.stories\.js?$/,
+  loaders: [require.resolve('@storybook/addon-storysource/loader')],
+  enforce: 'pre'
+})
+config.module.rules.push({
+  test: /\.vue$/,
+  loader: 'storybook-addon-vue-info/loader',
+  enforce: 'post'
+})
+```
+
+修改.storybook 下 config.js
+
+```js
+// 具体配置可查看npm
+import { configure, addDecorator } from '@storybook/vue'
+import { withInfo, setDefaults } from 'storybook-addon-vue-info'
+
+addDecorator(withInfo)
+```
+
+重新运行 npm run storybook 查看效果
+
 ##### 提取私有组件
 
 1. 创建测试文件 ./stories/changeTime.vue
@@ -320,7 +360,7 @@ module.exports = ({ config, mode }) => {
 
 1. [storybook](https://storybook.js.org/docs/guides/guide-vue/)
 2. [storybook 配置之基本配置和 webpack 配置](https://www.cnblogs.com/mrzhu/p/10238832.html)
-3. [vue界面测试框架storybook](https://blog.csdn.net/win7583362/article/details/79238060)
+3. [vue 界面测试框架 storybook](https://blog.csdn.net/win7583362/article/details/79238060)
 
 ---
 
@@ -333,3 +373,11 @@ module.exports = ({ config, mode }) => {
 -[项目搭建] 项目构建
 
 -[新增 changeTime.vue 私有组件] 增加 demo
+
+### v-1.1.0(2019/07/03)
+
+#### 新增 feature
+
+-[项目搭建] 新增 storybook 的配置信息&源码
+
+-[新增 line-chart.vue 私有组件] 增加 demo
