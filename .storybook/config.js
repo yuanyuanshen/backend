@@ -1,9 +1,18 @@
-import { configure } from '@storybook/vue'
+import { configure, addDecorator } from '@storybook/vue'
+import { withInfo, setDefaults } from 'storybook-addon-vue-info'
 import Vue from 'vue'
 import JElement from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.use(JElement)
+
+addDecorator(withInfo)
+setDefaults({
+  header: false,
+  info: {
+    source: true
+  }
+})
 
 const req = require.context('../stories', true, /\.stories\.js$/)
 console.log(req.keys()) // 是一个函数，它返回一个数组，由所有可能被上下文模块处理的请求组成
