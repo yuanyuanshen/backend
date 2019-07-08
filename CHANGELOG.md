@@ -361,6 +361,7 @@ module.exports = ({ config, mode }) => {
 1. [storybook](https://storybook.js.org/docs/guides/guide-vue/)
 2. [storybook 配置之基本配置和 webpack 配置](https://www.cnblogs.com/mrzhu/p/10238832.html)
 3. [vue 界面测试框架 storybook](https://blog.csdn.net/win7583362/article/details/79238060)
+4. [storybook-addon-vue-info](https://storybook-addon-vue-info.netlify.com/?path=/story/examples-advance-usage--hide-story-source)
 
 ---
 

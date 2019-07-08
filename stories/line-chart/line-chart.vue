@@ -14,7 +14,7 @@ export default {
     color: {
       type: Array,
       default () {
-        return ['#66CC00', '#FF9966'];
+        return ['#66CC00', '#FF9900'];
       }
     },
     // 系列图例名称
