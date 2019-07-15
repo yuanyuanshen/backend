@@ -23,6 +23,7 @@ components.map(component => {
 console.log(components)
 
 export default {
-  // install,
+  install,
   components
 }
+export { install, components }

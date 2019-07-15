@@ -5,14 +5,14 @@
 ### 在项目中安装方式
 
 ```
-npm install backend
+npm i vue_backend
 ```
 
 ### 在项目中使用方式
 
 ```js
 import Vue from 'vue'
-import Backend from 'backend'
+import Backend from 'vue_backend'
 
 Vue.use(Backend)
 ```
