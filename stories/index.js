@@ -1,10 +1,8 @@
 import ChangeTime from './changeTime/index'
 import LineChart from './line-chart/index'
 
-const components = {
-  ChangeTime,
-  LineChart
-}
+const components = [ChangeTime, LineChart]
+
 /**
  *
  * @param {Vue} Vue
@@ -16,6 +14,6 @@ const install = function(Vue) {
 
 export default {
   install,
-  components
+  ...components
 }
 export { install, components }
