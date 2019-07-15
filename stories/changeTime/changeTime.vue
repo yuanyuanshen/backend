@@ -104,7 +104,7 @@ export default {
 div.el-form-item__error {
   top: 80% !important;
 }
-.change-time-dialog /deep/ .el-dialog__body {
+.change-time-dialog ::v-deep .el-dialog__body {
   padding-bottom: 0px !important;
 }
 </style>
