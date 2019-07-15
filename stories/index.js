@@ -1,9 +1,9 @@
-import changeTime from './changeTime/changeTime'
-import lineChart from './line-chart/line-chart'
+import ChangeTime from './changeTime/index'
+import LineChart from './line-chart/index'
 
 const components = {
-  changeTime,
-  lineChart
+  ChangeTime,
+  LineChart
 }
 /**
  *
@@ -13,14 +13,6 @@ const install = function(Vue) {
   if (install.installed) return
   components.map(component => Vue.component(component.name, component))
 }
-
-components.map(component => {
-  component.install = function(Vue) {
-    Vue.component(component.name, component)
-  }
-})
-
-console.log(components)
 
 export default {
   install,

@@ -9,6 +9,7 @@
 import echarts from 'echarts'
 
 export default {
+  name: 'LineChart',
   props: {
     // 数值系列的颜色列表
     color: {

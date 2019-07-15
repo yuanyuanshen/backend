@@ -30,6 +30,7 @@
 </template>
 <script>
 export default {
+  name: 'ChangeTime',
   data () {
     return {
       show: false,
