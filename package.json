@@ -1,8 +1,12 @@
 {
     "name": "vue_backend",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "",
-    "main": "index.js",
+    "main": "stories/index.js",
+    "keywords": [
+        "vue_backend",
+        "Private component libraries extracted from individual projects"
+    ],
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "storybook": "start-storybook -p 9001",
