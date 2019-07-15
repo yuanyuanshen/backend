@@ -1,5 +1,5 @@
 {
-    "name": "backend",
+    "name": "vue_backend",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -8,6 +8,10 @@
         "storybook": "start-storybook -p 9001",
         "build": "rollup --config",
         "build-storybook": "build-storybook"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:yuanyuanshen/backend.git"
     },
     "author": "yuanyuanshen",
     "license": "ISC",
