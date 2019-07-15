@@ -1,4 +1,4 @@
-import ChangeTime from './changeTime'
+import ChangeTime from './changeTime.vue'
 
 ChangeTime.install = function(Vue) {
   Vue.component(ChangeTime.name, ChangeTime)

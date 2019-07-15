@@ -1,4 +1,4 @@
-import ChangeTime from './line-chart'
+import ChangeTime from './line-chart.vue'
 
 LineChart.install = function(Vue) {
   Vue.component(LineChart.name, LineChart)
