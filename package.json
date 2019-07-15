@@ -9,7 +9,7 @@
         "build": "rollup --config",
         "build-storybook": "build-storybook"
     },
-    "author": "",
+    "author": "yuanyuanshen",
     "license": "ISC",
     "devDependencies": {
         "@storybook/addon-a11y": "^5.1.9",

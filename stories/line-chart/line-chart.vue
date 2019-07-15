@@ -47,12 +47,12 @@ export default {
     // 图标宽度
     width: {
       type: String,
-      default: '40%'
+      default: '35%'
     },
     // 图标高度
     height: {
       type: String,
-      default: '300px'
+      default: '350px'
     },
     // 系列数据
     seriesData: {
