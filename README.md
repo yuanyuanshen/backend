@@ -20,14 +20,15 @@ Vue.use(Backend)
 直接使用组件
 
 ```html
- <single-line-chart
-    :seriesName="seriesName"
-    :seriesData="seriesData"
-    titleText="内存使用率（%）"
-    v-if="showGraph"
-    titleSubText="纯属虚构"
-    :unit="unit" />
-  </div>
+<line-chart
+  :seriesName="seriesName"
+  :seriesData="seriesData"
+  titleText="内存使用率（%）"
+  v-if="showGraph"
+  titleSubText="纯属虚构"
+  :unit="unit"
+>
+</line-chart>
 ```
 
 ### 项目搭建
