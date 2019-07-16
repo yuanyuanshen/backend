@@ -35,5 +35,44 @@ Vue.use(Backend)
 
 查看 CHANGELOG.md 文档 （包含以下内容）
 
-1. 项目搭建过程
-2. 版本更新信息
+### 项目变更记录
+
+#### v-1.0.0(2019/06/28)
+
+##### 新增 feature
+
+-[项目搭建] 项目构建
+
+-[新增 changeTime.vue 私有组件] 增加 demo
+
+#### v-1.0.1(2019/07/03)
+
+##### 新增 feature
+
+-[项目搭建] 新增 storybook 的配置信息&源码
+
+-[新增 line-chart.vue 私有组件] 增加 demo
+
+#### v-1.0.7(2019/07/03)
+
+##### 新增 feature
+
+-[项目搭建] 新增 rolllup 配置文件可打包发布
+
+-[新增 radar-chart.vue 私有组件] 增加 demo
+
+-[打包发布到 npm]
+
+### 私有组件实例
+
+#### 单条折线图
+
+<img src="./static/imgs/singleLineChart.png">
+
+#### 多条折线图
+
+<img src="./static/imgs/lineChart.png">
+
+#### 大屏雷达图
+
+<img src="./static/imgs/radar.png">

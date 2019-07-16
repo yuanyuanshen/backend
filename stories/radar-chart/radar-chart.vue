@@ -1,7 +1,13 @@
 <template>
-  <div id="show-radar-chart"
-       :style="style"
-       ref="radarChart">
+  <div class="radar-container"
+       :style="style">
+    <div class="image-border image-border1"></div>
+    <div class="image-border image-border2"></div>
+    <div class="image-border image-border3"></div>
+    <div class="image-border image-border4"></div>
+    <div id="show-radar-chart"
+         ref="radarChart">
+    </div>
   </div>
 </template>
 <script>
@@ -12,12 +18,45 @@ export default {
     // 图标宽度
     width: {
       type: String,
-      default: '50%'
+      default: '30%'
     },
     // 图标高度
     height: {
       type: String,
       default: '400px'
+    },
+    // 数值系列的颜色列表
+    color: {
+      type: Array,
+      default () {
+        return ['#66CC00', '#FF9900'];
+      }
+    },
+    // 标题
+    title: {
+      type: String,
+      default: ''
+    },
+    // 图例名称
+    legendName: {
+      type: Array,
+      default () {
+        return [];
+      }
+    },
+    // 指示器
+    indicator: {
+      type: Array,
+      default () {
+        return [];
+      }
+    },
+    // series数据
+    seriesData: {
+      type: Array,
+      default () {
+        return [];
+      }
     }
   },
   data () {
@@ -29,55 +68,47 @@ export default {
   computed: {    // 图标样式
     style () {
       return `width:${this.width};height:${this.height}`
-    },  },
+    },
+  },
   methods: {
     renderChart () {
       this.chart = echarts.init(this.$refs.radarChart);
       const cfg = {
-        tooltip: {},
-        grid: {
-          x: 25,
-          y: 45,
-          x2: 5,
-          y2: 20,
-          borderWidth: 1
+        title: {
+          text: this.title,
+          top: 6,
+          left: 4,
+          textStyle: {
+            color: '#54dcf2',
+            fontSize: 15
+          }
         },
+        tooltip: {},
+        color: this.color,
         legend: {
-          data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）'],
-          bottom: '0'
+          data: this.legendName,
+          bottom: '2%',
+          itemGap: 20,
+          textStyle: {
+            color: 'white',
+          }
         },
         radar: {
+          radius: '65%',
+          center: ['50%', '47%'],
           name: {
             textStyle: {
-              color: 'black',
+              color: 'white',
               fontSize: '13',
               borderRadius: 3,
               padding: [3, 5]
             }
           },
-          indicator: [
-            { name: '销售', max: 6500 },
-            { name: '管理', max: 16000 },
-            { name: '信息技术', max: 30000 },
-            { name: '客服', max: 38000 },
-            { name: '研发', max: 52000 },
-            { name: '市场', max: 25000 }
-          ]
+          indicator: this.indicator
         },
         series: [{
-          name: '预算 vs 开销（Budget vs spending）',
           type: 'radar',
-          // areaStyle: {normal: {}},
-          data: [
-            {
-              value: [4300, 10000, 28000, 35000, 50000, 19000],
-              name: '预算分配（Allocated Budget）'
-            },
-            {
-              value: [5000, 14000, 28000, 31000, 42000, 21000],
-              name: '实际开销（Actual Spending）'
-            }
-          ]
+          data: this.seriesData
         }]
       }
       this.chart.setOption(cfg)
@@ -86,6 +117,50 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.radar-container {
+  background-color: rgb(2, 22, 64);
+  overflow: hidden;
+  position: relative;
+  #show-radar-chart {
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    margin: 20px;
+    border: 1px solid #54dcf2;
+  }
+  .image-border {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+  }
+
+  .image-border1 {
+    top: 17px;
+    left: 17px;
+    border-left: 3px solid #54dcf2;
+    border-top: 3px solid #54dcf2;
+  }
+
+  .image-border2 {
+    top: 17px;
+    right: 15px;
+    border-right: 3px solid #54dcf2;
+    border-top: 3px solid #54dcf2;
+  }
+
+  .image-border3 {
+    bottom: 17px;
+    left: 17px;
+    border-bottom: 3px solid #54dcf2;
+    border-left: 3px solid #54dcf2;
+  }
+
+  .image-border4 {
+    bottom: 17px;
+    right: 15px;
+    border-right: 3px solid #54dcf2;
+    border-bottom: 3px solid #54dcf2;
+  }
+}
 </style>
 
 

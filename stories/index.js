@@ -1,7 +1,8 @@
-import ChangeTime from './changeTime/index'
-import LineChart from './line-chart/index'
+import ChangeTime from './changeTime/index.js'
+import LineChart from './line-chart/index.js'
+import RadarChart from './radar-chart/index.js'
 
-const components = [ChangeTime, LineChart]
+const components = [ChangeTime, LineChart, RadarChart]
 
 /**
  *
