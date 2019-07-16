@@ -18,7 +18,7 @@ export default {
     // 图标宽度
     width: {
       type: String,
-      default: '30%'
+      default: '36%'
     },
     // 图标高度
     height: {
