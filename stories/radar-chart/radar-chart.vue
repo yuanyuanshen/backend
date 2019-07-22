@@ -1,13 +1,7 @@
 <template>
-  <div class="radar-container"
-       :style="style">
-    <div class="image-border image-border1"></div>
-    <div class="image-border image-border2"></div>
-    <div class="image-border image-border3"></div>
-    <div class="image-border image-border4"></div>
-    <div id="show-radar-chart"
-         ref="radarChart">
-    </div>
+  <div id="show-radar-chart"
+       :style="style"
+       ref="radarChart">
   </div>
 </template>
 <script>
@@ -23,7 +17,12 @@ export default {
     // 图标高度
     height: {
       type: String,
-      default: '400px'
+      default: '350px'
+    },
+    // 背景颜色
+    backgroundColor: {
+      type: String,
+      default: 'rgb(2, 22, 64)'
     },
     // 数值系列的颜色列表
     color: {
@@ -67,7 +66,7 @@ export default {
   },
   computed: {    // 图标样式
     style () {
-      return `width:${this.width};height:${this.height}`
+      return `width:${this.width};height:${this.height};background-color:${this.backgroundColor}`
     },
   },
   methods: {
@@ -94,12 +93,12 @@ export default {
           }
         },
         radar: {
-          radius: '65%',
+          radius: '56%',
           center: ['50%', '47%'],
           name: {
             textStyle: {
               color: 'white',
-              fontSize: '13',
+              fontSize: '12',
               borderRadius: 3,
               padding: [3, 5]
             }
@@ -117,50 +116,50 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.radar-container {
-  background-color: rgb(2, 22, 64);
-  overflow: hidden;
-  position: relative;
-  #show-radar-chart {
-    width: calc(100% - 40px);
-    height: calc(100% - 40px);
-    margin: 20px;
-    border: 1px solid #54dcf2;
-  }
-  .image-border {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-  }
+// .radar-container {
+//   background-color: rgb(2, 22, 64);
+//   overflow: hidden;
+//   position: relative;
+//   #show-radar-chart {
+//     width: calc(100% - 40px);
+//     height: calc(100% - 40px);
+//     margin: 20px;
+//     border: 1px solid #54dcf2;
+//   }
+//   .image-border {
+//     position: absolute;
+//     width: 30px;
+//     height: 30px;
+//   }
 
-  .image-border1 {
-    top: 17px;
-    left: 17px;
-    border-left: 3px solid #54dcf2;
-    border-top: 3px solid #54dcf2;
-  }
+//   .image-border1 {
+//     top: 17px;
+//     left: 17px;
+//     border-left: 3px solid #54dcf2;
+//     border-top: 3px solid #54dcf2;
+//   }
 
-  .image-border2 {
-    top: 17px;
-    right: 15px;
-    border-right: 3px solid #54dcf2;
-    border-top: 3px solid #54dcf2;
-  }
+//   .image-border2 {
+//     top: 17px;
+//     right: 15px;
+//     border-right: 3px solid #54dcf2;
+//     border-top: 3px solid #54dcf2;
+//   }
 
-  .image-border3 {
-    bottom: 17px;
-    left: 17px;
-    border-bottom: 3px solid #54dcf2;
-    border-left: 3px solid #54dcf2;
-  }
+//   .image-border3 {
+//     bottom: 15px;
+//     left: 17px;
+//     border-bottom: 3px solid #54dcf2;
+//     border-left: 3px solid #54dcf2;
+//   }
 
-  .image-border4 {
-    bottom: 17px;
-    right: 15px;
-    border-right: 3px solid #54dcf2;
-    border-bottom: 3px solid #54dcf2;
-  }
-}
+//   .image-border4 {
+//     bottom: 15px;
+//     right: 15px;
+//     border-right: 3px solid #54dcf2;
+//     border-bottom: 3px solid #54dcf2;
+//   }
+// }
 </style>
 
 
