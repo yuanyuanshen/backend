@@ -88,7 +88,6 @@ export default {
         array.push({
           data: this.seriesData.map(r => r.value[index]),
           type: 'line',
-          smooth: true,
           name: series,
         })
       })
