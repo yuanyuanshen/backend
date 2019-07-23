@@ -59,10 +59,15 @@ export default {
     }
   },
   data () {
-    return {}
+    return {
+      chart: null
+    }
   },
   mounted () {
     this.renderChart()
+    window.onresize = () => (() => {
+      this.chart.resize();
+    })();
   },
   computed: {    // 图标样式
     style () {

@@ -67,7 +67,11 @@ export default {
       default: false
     }
   },
-
+  data () {
+    return {
+      chart: null
+    };
+  },
   computed: {
     // 图标样式
     style () {
@@ -84,6 +88,7 @@ export default {
         array.push({
           data: this.seriesData.map(r => r.value[index]),
           type: 'line',
+          smooth: true,
           name: series,
         })
       })
@@ -93,6 +98,9 @@ export default {
 
   mounted () {
     this.renderChart()
+    window.onresize = () => (() => {
+      this.chart.resize();
+    })();
   },
 
   methods: {
@@ -153,9 +161,6 @@ export default {
         xAxis: [
           {
             type: 'category',
-            axisLine: {
-              onZero: false,
-            },
             boundaryGap: false,
             // 横坐标Label 显示
             axisLabel: {
@@ -165,6 +170,12 @@ export default {
               },
               interval: 12,
               showMaxLabel: true
+            },
+            axisLine: {
+              onZero: false,
+              lineStyle: {
+                color: '#E9E9E9',
+              }
             },
             data: this.keys
           }
