@@ -27,13 +27,13 @@ export default {
       default: () => []
     },
     seriesData: { // 系列数据
-      type: Array,
-      default: () => []
+      type: Object,
+      default: () => null
     }
   },
   computed: {
     style () { // 图标样式
-      return `width:${this.width};height:${this.height}`
+      return `width:${this.width};height:${this.height};`
     },
     legend () { // 图例
       return Object.keys(this.seriesData)

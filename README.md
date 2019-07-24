@@ -71,6 +71,13 @@ Vue.use(Backend)
 
 -[新增 bar-chart.vue 私有组件] 增加 demo
 
+#### v-1.1.2(2019/07/24)
+
+##### 新增 feature
+
+-[新增 geo-map.vue 私有组件] 增加 demo
+
+
 ### 私有组件实例
 
 #### 单条折线图
@@ -92,3 +99,7 @@ Vue.use(Backend)
 #### 柱状图
 
 <img src="./static/imgs/bar-chart.png">
+
+#### 地图
+
+<img src="./static/imgs/geo-map.png">
