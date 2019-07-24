@@ -2,8 +2,15 @@ import ChangeTime from './changeTime/index.js'
 import LineChart from './line-chart/index.js'
 import RadarChart from './radar-chart/index.js'
 import SmoothLineChart from './smooth-line-chart/index.js'
+import BarChart from './bar-chart/index.js'
 
-const components = [ChangeTime, LineChart, RadarChart, SmoothLineChart]
+const components = [
+  ChangeTime,
+  LineChart,
+  RadarChart,
+  SmoothLineChart,
+  BarChart
+]
 
 /**
  *
