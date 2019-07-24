@@ -382,3 +382,11 @@ module.exports = ({ config, mode }) => {
 -[项目搭建] 新增 storybook 的配置信息&源码
 
 -[新增 line-chart.vue 私有组件] 增加 demo
+
+### v-1.1.1(2019/07/24)
+
+#### 新增 feature
+
+-[新增 smooth-line-chart.vue 私有组件] 增加 demo
+
+-[新增 bar-chart.vue 私有组件] 增加 demo

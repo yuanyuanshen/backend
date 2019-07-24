@@ -84,7 +84,7 @@ export default {
         },
         grid: {
           top: '8%',
-          left: '8%',
+          left: '10%',
           right: '4%',
           bottom: '10%',
           containLabel: true
@@ -100,7 +100,7 @@ export default {
           type: 'slider',
           yAxisIndex: 0,
           filterMode: 'empty',
-          x: 0,
+          x: 10,
           start: 0,
           end: 100,
           textStyle: {

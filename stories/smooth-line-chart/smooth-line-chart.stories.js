@@ -15,17 +15,17 @@ storiesOf('监控图表(平滑折线图)', module).add('平滑折线图', () => 
     return {
       yAxisCfg: [
         {
-          legend: '温度（℃）',
+          legend: 'haha（A）',
           min: 0,
           max: 80
         },
         {
-          legend: '湿度（%）',
+          legend: 'hehe（B）',
           min: 0,
           max: 80
         }
       ],
-      legendData: ['温度', '湿度'],
+      legendData: ['haha', 'hehe'],
       seriesData: {
         '2019-07-22 12:00': [0, 25],
         '2019-07-22 12:05': [24, 26],
@@ -39,7 +39,7 @@ storiesOf('监控图表(平滑折线图)', module).add('平滑折线图', () => 
         '2019-07-22 12:45': [18, 20],
         '2019-07-22 12:50': [0, 18]
       },
-      unit: ['℃', '%']
+      unit: ['A', 'B']
     }
   }
 }))

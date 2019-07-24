@@ -173,7 +173,7 @@ export default {
             axisLine: {
               onZero: false,
               lineStyle: {
-                color: '#E9E9E9',
+                color: 'blcak',
               }
             },
             data: this.keys

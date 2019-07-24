@@ -63,6 +63,14 @@ Vue.use(Backend)
 
 -[打包发布到 npm]
 
+#### v-1.1.1(2019/07/24)
+
+##### 新增 feature
+
+-[新增 smooth-line-chart.vue 私有组件] 增加 demo
+
+-[新增 bar-chart.vue 私有组件] 增加 demo
+
 ### 私有组件实例
 
 #### 单条折线图
@@ -76,3 +84,11 @@ Vue.use(Backend)
 #### 大屏雷达图
 
 <img src="./static/imgs/radar.png">
+
+#### 平滑折线图
+
+<img src="./static/imgs/smooth-line.png">
+
+#### 柱状图
+
+<img src="./static/imgs/bar-chart.png">

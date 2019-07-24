@@ -151,12 +151,12 @@ export default {
           type: 'category',
           axisLine: {
             lineStyle: {
-              color: '#E9E9E9',
+              color: 'black',
             }
           },
           axisLabel: {
             textStyle: {
-              color: 'rgba(0,0,0,.65)'
+              color: 'rgba(0,0,0,.85)'
             },
             showMaxLabel: true,
           },
