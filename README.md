@@ -77,10 +77,20 @@ Vue.use(Backend)
 
 -[新增 geo-map.vue 私有组件] 增加 demo
 
-
 ### 私有组件实例
 
 #### 单条折线图
+
+```html
+<line-chart
+  :seriesName="seriesName"
+  :seriesData="seriesData"
+  titleText="内存使用率（%）"
+  v-if="showGraph"
+  titleSubText="纯属虚构"
+  :unit="unit"
+></line-chart>
+```
 
 <img src="./static/imgs/singleLineChart.png">
 
@@ -90,16 +100,42 @@ Vue.use(Backend)
 
 #### 大屏雷达图
 
+```html
+<radar-chart
+  :title="title"
+  :legendName="legendName"
+  :indicator="indicator"
+  :seriesData="seriesData"
+></radar-chart>
+```
+
 <img src="./static/imgs/radar.png">
 
 #### 平滑折线图
+
+```html
+<smooth-line-chart
+  :yAxisCfg="yAxisCfg"
+  :legendData="legendData"
+  :seriesData="seriesData"
+  :unit="unit"
+></smooth-line-chart>
+```
 
 <img src="./static/imgs/smooth-line.png">
 
 #### 柱状图
 
+```html
+<bar-chart :yAxisData="yAxisData" :seriesData="seriesData"></bar-chart>
+```
+
 <img src="./static/imgs/bar-chart.png">
 
 #### 地图
+
+```html
+<geo-map width="46%"></geo-map>
+```
 
 <img src="./static/imgs/geo-map.png">
