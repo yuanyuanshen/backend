@@ -1,4 +1,8 @@
+## 1.1.3 (2019-08-14)
 
+### Features
+
+- add new feature ([6006fec](https://github.com/yuanyuanshen/backend/commit/6006fec))
 
 ## （一）私有组件库搭建
 
@@ -393,8 +397,8 @@ module.exports = ({ config, mode }) => {
 
 -[新增 bar-chart.vue 私有组件] 增加 demo
 
-### v-1.1.2(2019/07/24)
+<!-- ### v-1.1.2(2019/07/24)
 
 #### 新增 feature
 
--[新增 geo-map.vue 私有组件] 增加 demo
+-[新增 geo-map.vue 私有组件] 增加 demo -->
