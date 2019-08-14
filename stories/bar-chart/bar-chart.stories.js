@@ -25,7 +25,7 @@ storiesOf('监控图标（柱状图）', module).add(
   }),
   {
     info: {
-      header: true
+      // header: true
     }
   }
 )
