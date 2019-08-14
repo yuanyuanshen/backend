@@ -11,7 +11,8 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "storybook": "start-storybook -p 9001",
         "build": "rollup --config",
-        "build-storybook": "build-storybook"
+        "build-storybook": "build-storybook",
+        "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0"
     },
     "repository": {
         "type": "git",
