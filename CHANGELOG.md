@@ -1,12 +1,13 @@
 ## 1.1.4 (2019-08-20)
 
+### Bug Fixes
+
+- **to fix changelog:** xXXXXXXXXXX ([54d9c4a](https://github.com/yuanyuanshen/backend/commit/54d9c4a))
 
 ### Features
 
-* add new feature ([6006fec](https://github.com/yuanyuanshen/backend/commit/6006fec))
-* **add commitizen:** 添加自动生成changelog功能 ([7afd7a2](https://github.com/yuanyuanshen/backend/commit/7afd7a2))
-
-
+- add new feature ([6006fec](https://github.com/yuanyuanshen/backend/commit/6006fec))
+- **add commitizen:** 添加自动生成 changelog 功能 ([7afd7a2](https://github.com/yuanyuanshen/backend/commit/7afd7a2))
 
 ## <small>1.1.3 (2019-08-20)</small>
 
